@@ -37,21 +37,24 @@
             button1 = new Button();
             label2 = new Label();
             radioButton2 = new RadioButton();
+            groupBox1 = new GroupBox();
             label3 = new Label();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // textBox1
             // 
             textBox1.Location = new Point(53, 35);
             textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "Введите новую задачу";
             textBox1.Size = new Size(359, 27);
             textBox1.TabIndex = 0;
-            textBox1.Text = "Введите новую задачу";
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(199, 120);
+            label1.Location = new Point(199, 152);
             label1.Name = "label1";
             label1.Size = new Size(213, 20);
             label1.TabIndex = 1;
@@ -61,25 +64,26 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(53, 77);
+            comboBox1.Location = new Point(53, 108);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(359, 28);
             comboBox1.TabIndex = 2;
-            comboBox1.Text = "Выберите приоритет задачи";
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(53, 157);
+            listBox1.ItemHeight = 20;
+            listBox1.Location = new Point(53, 183);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(359, 84);
+            listBox1.Size = new Size(359, 124);
             listBox1.TabIndex = 3;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(53, 261);
+            checkBox1.Location = new Point(53, 322);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(309, 24);
             checkBox1.TabIndex = 4;
@@ -90,7 +94,7 @@
             // radioButton1
             // 
             radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(53, 331);
+            radioButton1.Location = new Point(6, 26);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(135, 24);
             radioButton1.TabIndex = 5;
@@ -101,59 +105,76 @@
             // 
             // button1
             // 
-            button1.Location = new Point(53, 403);
+            button1.Location = new Point(53, 471);
             button1.Name = "button1";
             button1.Size = new Size(359, 65);
             button1.TabIndex = 6;
             button1.Text = "Добавить задачу";
             button1.UseVisualStyleBackColor = true;
+            // Привязка события Click к методу button1_Click:
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(53, 120);
+            label2.Location = new Point(53, 152);
             label2.Name = "label2";
             label2.Size = new Size(136, 20);
             label2.TabIndex = 7;
             label2.Text = "Список всех задач";
+            label2.Click += label2_Click;
             // 
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(53, 361);
+            radioButton2.Location = new Point(6, 58);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(172, 24);
             radioButton2.TabIndex = 8;
             radioButton2.TabStop = true;
             radioButton2.Text = "По дате добавления";
             radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(radioButton1);
+            groupBox1.Controls.Add(radioButton2);
+            groupBox1.Location = new Point(53, 366);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(212, 82);
+            groupBox1.TabIndex = 10;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Выбор типа сортировки";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(53, 299);
+            label3.Location = new Point(53, 85);
             label3.Name = "label3";
-            label3.Size = new Size(178, 20);
-            label3.TabIndex = 9;
-            label3.Text = "Выбор типа сортировки";
+            label3.Size = new Size(208, 20);
+            label3.TabIndex = 11;
+            label3.Text = "Выберите приоритет задачи";
+            label3.Click += label3_Click_1;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(483, 486);
+            ClientSize = new Size(469, 548);
             Controls.Add(label3);
-            Controls.Add(radioButton2);
+            Controls.Add(groupBox1);
             Controls.Add(label2);
             Controls.Add(button1);
-            Controls.Add(radioButton1);
             Controls.Add(checkBox1);
             Controls.Add(listBox1);
             Controls.Add(comboBox1);
             Controls.Add(label1);
             Controls.Add(textBox1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Планировщик задач";
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -169,6 +190,7 @@
         private Button button1;
         private Label label2;
         private RadioButton radioButton2;
+        private GroupBox groupBox1;
         private Label label3;
     }
 }
