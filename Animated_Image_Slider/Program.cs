@@ -1,4 +1,6 @@
-namespace The_Clicker_game
+using Animated_Image_Slider;
+
+namespace Animated_Image_Slider
 {
     internal static class Program
     {
@@ -11,7 +13,7 @@ namespace The_Clicker_game
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new ImageSliderForm());
         }
     }
 }

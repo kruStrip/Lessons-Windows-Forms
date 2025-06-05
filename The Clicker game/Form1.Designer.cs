@@ -1,4 +1,8 @@
-﻿namespace The_Clicker_game
+﻿using System.Windows.Forms;
+using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace The_Clicker_game
 {
     partial class Тапалка
     {
