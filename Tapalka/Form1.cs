@@ -4,26 +4,21 @@ using System.Windows.Forms;
 
 namespace Tapalka
 {
-    /// <summary>
-    /// Логика игры‑кликера «Тапалка» – адаптирована под имена контролов,
-    /// которые создал дизайнер по‑умолчанию, поэтому ничего переименовывать
-    /// в визуальном редакторе не нужно.
-    /// </summary>
     public partial class Form1 : Form
     {
-        // ─────────── настройки и состояние игры ───────────
+        // настройки и состояние игры
         private const int ProgressPerClick = 1;   // очков за клик
         private const int ProgressBarMax = 10;  // кликов до нового уровня
 
         private int _level = 1;                    // текущий уровень
         private int _score = 0;                    // всего кликов
 
-        private int _gameDurationSec = 30;         // длительность раунда (секунды)
+        private int _gameDurationSec = 30;         // длительность раунда (сек)
         private int _timeLeft;                     // секунд осталось
 
         private bool _isRunning = false;           // флаг «игра идёт»
 
-        // ─────────── конструктор ───────────
+        //конструктор
         public Form1()
         {
             InitializeComponent();
@@ -35,18 +30,18 @@ namespace Tapalka
             progressBar1.Maximum = ProgressBarMax;
             progressBar1.Value = 0;
 
-            // таймер – тик каждую секунду
+            // таймер
             timer1.Interval = 1000;
             timer1.Tick += Timer1_Tick;
 
-            // клики по картинке – основной игровой ввод
+            // клики по картинке
             pictureBox1.Click += pictureBox1_Click;
 
             // меню
             новаяИграToolStripMenuItem.Click += (_, __) => StartGame();
             выйтиToolStripMenuItem.Click += (_, __) => Close();
 
-            // вкладка «Настройки»
+            // Настройки
             if (comboBox1 != null)
             {
                 comboBox1.Items.AddRange(new object[] { 10, 20, 30, 45, 60 });
@@ -60,7 +55,7 @@ namespace Tapalka
             UpdateLevelLabel();
         }
 
-        // ─────────── запуск и завершение раунда ───────────
+        // запуск и завершение раунда 
         private void StartGame()
         {
             _level = 1;
@@ -90,7 +85,7 @@ namespace Tapalka
                 MessageBoxIcon.Information);
         }
 
-        // ─────────── события ───────────
+        //события 
         private void pictureBox1_Click(object? sender, EventArgs e)
         {
             if (!_isRunning) return;
@@ -126,7 +121,7 @@ namespace Tapalka
 
         private void ButtonChange_Click(object? sender, EventArgs e) => StartGame();
 
-        // ─────────── вспомогательные ───────────
+        //вспомогательные
         private void UpdateLevelLabel() => label1.Text = $"Уровень {_level}";
 
         private void UpdateDurationLabel()
