@@ -77,6 +77,7 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Игра";
             tabPage1.UseVisualStyleBackColor = true;
+            //tabPage1.Click += tabPage1_Click;
             // 
             // tabPage2
             // 
@@ -88,6 +89,7 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Настройки";
             tabPage2.UseVisualStyleBackColor = true;
+            //tabPage2.Click += tabPage2_Click;
             // 
             // menuStrip1
             // 
