@@ -1,4 +1,4 @@
-namespace The_Clicker_game
+namespace Tapalka
 {
     internal static class Program
     {
